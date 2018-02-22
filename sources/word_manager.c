@@ -6,12 +6,30 @@
 /*   By: bpisano <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/22 20:01:10 by bpisano      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/22 20:30:26 by bpisano     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/02/22 20:51:17 by bpisano     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "hotrace.h"
+
+int		word_sum(char *word)
+{
+	int		i;
+	int		sum;
+
+	i = 0;
+	sum = 0;
+	while (word[i])
+	{
+		if (i % 2 == 0)
+			sum += (int)word[i];
+		else
+			sum -= (int)word[i];
+		i++;
+	}
+	return (sum < 0 ? -sum : sum);
+}
 
 t_word	*new_word(char *key)
 {
@@ -25,7 +43,7 @@ t_word	*new_word(char *key)
 	new->value = NULL;
 	new->begin = (unsigned int)key[0];
 	new->len = ft_strlen(key);
-	new->sum = 0;
+	new->sum = word_sum(key);
 	new->next = NULL;
 	return (new);
 }

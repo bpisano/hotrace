@@ -6,7 +6,7 @@
 /*   By: bpisano <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/22 16:37:28 by bpisano      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/22 20:29:37 by bpisano     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/02/22 21:02:00 by bpisano     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -75,7 +75,7 @@ int		main(void)
 	search = NULL;
 	list = new_list();
 	get_input(&search, &list);
-	printf("%s\n", ((t_word *)list[66][0][7])->key);
+	get_value(&list, &search);
 	free(list);
 	return (0);
 }

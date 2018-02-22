@@ -6,7 +6,7 @@
 /*   By: bpisano <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/22 19:39:15 by bpisano      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/22 20:02:01 by bpisano     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/02/22 21:15:07 by bpisano     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,4 +30,44 @@ void	add_search(t_search **search, t_search *new)
 {
 	new->next = *search;
 	*search = new;
+}
+
+char	*value(t_word *****list, char *key)
+{
+	int		begin;
+	int		len;
+	int		sum;
+	t_word	*current;
+
+	begin = (unsigned int)key[0];
+	len = ft_strlen(key);
+	sum = word_sum(key);
+	current = (*list)[begin][sum][len];
+	if (!current)
+		return (NULL);
+	while (current)
+	{
+		if (ft_strcmp(current->key, key) == 0)
+			return (current->value);
+		current = current->next;
+	}
+	return (NULL);
+}
+
+void	get_value(t_word *****list, t_search **search)
+{
+	char		*v;
+	t_search	*current;
+
+	if (!(*search))
+		return ;
+	current = *search;
+	while (current)
+	{
+		if (!(v = value(list, current->key)))
+			printf("No result");
+		else
+			printf("%s\n", v);
+		current = current->next;
+	}
 }
