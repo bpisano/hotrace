@@ -6,7 +6,7 @@
 /*   By: bpisano <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/22 19:39:15 by bpisano      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/22 21:15:07 by bpisano     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/02/22 21:18:11 by bpisano     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -65,9 +65,9 @@ void	get_value(t_word *****list, t_search **search)
 	while (current)
 	{
 		if (!(v = value(list, current->key)))
-			printf("No result");
+			ft_putstr("No result");
 		else
-			printf("%s\n", v);
+			ft_putstr(v);
 		current = current->next;
 	}
 }
