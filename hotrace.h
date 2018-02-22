@@ -6,7 +6,7 @@
 /*   By: ratroncy <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/22 15:57:31 by ratroncy     #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/22 16:20:53 by ratroncy    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/02/22 16:23:37 by bpisano     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -14,15 +14,15 @@
 #ifndef HOTRACE_H
 # define HOTRACE_H
 
-struct				s_words
+typedef struct		s_word
 {
 	char			*key;
 	char			*value;
-	int				key_len;
-	int				begin;
+	char			begin;
+	int				len;
 	int				sum;
 
-	struct words	*next;
-}					t_words;
+	struct word		*next;
+}					t_word;
 
 #endif
