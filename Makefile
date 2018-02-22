@@ -6,7 +6,7 @@
 #    By: bpisano <marvin@le-101.fr>                 +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/02/22 16:39:00 by bpisano      #+#   ##    ##    #+#        #
-#    Updated: 2018/02/22 16:58:14 by bpisano     ###    #+. /#+    ###.fr      #
+#    Updated: 2018/02/22 20:11:22 by bpisano     ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -14,6 +14,8 @@
 NAME = hotrace
 
 SRC = ./sources/hotrace.c				\
+	  ./sources/word_manager.c			\
+	  ./sources/search_manager.c
 
 OBJECTS = $(SRC:.c=.o)
 
@@ -50,7 +52,6 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@rm -f a.out
 	@make fclean -C libft
 
 re: fclean all
