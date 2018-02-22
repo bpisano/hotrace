@@ -6,14 +6,15 @@
 /*   By: bpisano <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/22 16:37:28 by bpisano      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/22 16:42:32 by bpisano     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/02/22 16:56:40 by bpisano     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "hotrace.h"
 
-int		main()
+int		main(void)
 {
-	return 0;
+	ft_putchar('a');
+	return (0);
 }
