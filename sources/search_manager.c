@@ -6,7 +6,7 @@
 /*   By: bpisano <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/22 19:39:15 by bpisano      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/23 18:25:48 by bpisano     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/02/23 19:25:13 by bpisano     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,17 +27,17 @@ t_search	*new_search(char *search)
 	return (new);
 }
 
-void	add_search(t_search **search, t_search *new)
+void		add_search(t_search **search, t_search *new)
 {
 	if (!new)
 		return ;
-	new->next = *search;	
+	new->next = *search;
 	if (*search)
 		(*search)->prev = new;
 	*search = new;
 }
 
-t_word	*word(t_word *****list, char *key)
+t_word		*word(t_word *****list, char *key)
 {
 	int		key1;
 	int		key2;
@@ -59,7 +59,7 @@ t_word	*word(t_word *****list, char *key)
 	return (NULL);
 }
 
-int		can_find(int **indexes, char *key)
+int			can_find(int **indexes, char *key)
 {
 	int		maths;
 
@@ -67,14 +67,14 @@ int		can_find(int **indexes, char *key)
 	return ((*indexes)[maths]);
 }
 
-void	get_value(t_word *****list, t_search **search, int **indexes)
+void		get_value(t_word *****list, t_search **search, int **indexes)
 {
 	t_search	*current;
 	t_word		*v;
 
 	if (!(*search))
 		return ;
-	current = *search;	
+	current = *search;
 	while (current->next)
 		current = current->next;
 	while (current)
