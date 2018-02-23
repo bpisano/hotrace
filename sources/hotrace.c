@@ -6,7 +6,7 @@
 /*   By: bpisano <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/22 16:37:28 by bpisano      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/22 21:02:00 by bpisano     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/02/23 12:19:05 by bpisano     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,11 +25,11 @@ t_word		****new_list()
 	while (i < 255)
 	{
 		j = 0;
-		if (!(list[i] = (t_word ***)ft_memalloc(sizeof(t_word **) * 100)))
+		if (!(list[i] = (t_word ***)ft_memalloc(sizeof(t_word **) * 200)))
 			return (NULL);
-		while (j < 100)
+		while (j < 200)
 		{
-			if (!(list[i][j] = (t_word **)ft_memalloc(sizeof(t_word *) * 100)))
+			if (!(list[i][j] = (t_word **)ft_memalloc(sizeof(t_word *) * 200)))
 				return (NULL);
 			j++;
 		}
