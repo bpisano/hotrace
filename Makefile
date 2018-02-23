@@ -3,10 +3,10 @@
 #                                                               /              #
 #    Makefile                                         .::    .:/ .      .::    #
 #                                                  +:+:+   +:    +:  +:+:+     #
-#    By: bpisano <marvin@le-101.fr>                 +:+   +:    +:    +:+      #
+#    By: ratroncy <ratroncy@student.42.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/02/22 16:39:00 by bpisano      #+#   ##    ##    #+#        #
-#    Updated: 2018/02/23 13:15:46 by bpisano     ###    #+. /#+    ###.fr      #
+#    Updated: 2018/02/23 13:25:27 by ratroncy    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -19,6 +19,7 @@ SRC = ./sources/hotrace.c				\
 	  ./sources/lib1.c					\
 	  ./sources/lib2.c					\
 	  ./sources/lib3.c					\
+	  ./sources/lib4.c					\
 	  ./sources/get_next_line.c			\
 
 OBJECTS = $(SRC:.c=.o)
