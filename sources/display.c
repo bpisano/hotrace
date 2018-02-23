@@ -6,7 +6,7 @@
 /*   By: bpisano <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/23 17:59:10 by bpisano      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/23 18:41:07 by bpisano     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/02/23 19:22:51 by bpisano     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,6 +21,6 @@ void	print_not_found(char *key)
 
 void	print_value(t_word *v)
 { 
-	write(1, v, v->v_len);
+	write(1, v->value, v->v_len);
 	write(1, "\n", 1);
 }
