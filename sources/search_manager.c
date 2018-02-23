@@ -6,7 +6,7 @@
 /*   By: bpisano <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/22 19:39:15 by bpisano      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/23 12:20:21 by bpisano     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/02/23 12:50:48 by bpisano     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,8 +28,17 @@ t_search	*new_search(char *search)
 
 void	add_search(t_search **search, t_search *new)
 {
-	new->next = *search;
-	*search = new;
+	t_search	*current;
+
+	if (!(*search))
+	{
+		*search = new;
+		return ;
+	}
+	current = *search;
+	while (current->next)
+		current = current->next;
+	current->next = new;
 }
 
 char	*value(t_word *****list, char *key)
