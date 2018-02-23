@@ -52,7 +52,7 @@ t_word		*word(t_word *****list, char *key)
 		return (NULL);
 	while (current)
 	{
-		if (ft_strcmp(current->key, key) == 0)
+		if (ft_strcmp(current->key, key) == 0)	
 			return (current);
 		current = current->next;
 	}

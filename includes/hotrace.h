@@ -20,7 +20,7 @@
 # include <wchar.h>
 
 # define BUFF_SIZE 64
-# define KEY1_M 10
+# define KEY1_M 50
 # define KEY2_M 100
 # define KEY3_M 100
 # define IND_M 1000
@@ -34,6 +34,7 @@ typedef struct		s_word
 	int				key3;
 	int				v_len;
 	struct s_word	*next;
+	struct s_word	*prev;
 }					t_word;
 
 typedef struct		s_search
