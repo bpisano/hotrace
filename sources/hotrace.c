@@ -6,30 +6,30 @@
 /*   By: bpisano <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/22 16:37:28 by bpisano      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/23 13:07:56 by bpisano     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/02/23 17:46:05 by bpisano     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "hotrace.h"
 
-t_word		****new_list()
+t_word		****new_list(void)
 {
 	int		i;
 	int		j;
 	t_word	****l;
 
-	if (!(l = (t_word ****)ft_memalloc(sizeof(t_word ***) * BEGIN_M)))
+	if (!(l = (t_word ****)ft_memalloc(sizeof(t_word ***) * KEY1_M)))
 		return (NULL);
 	i = 0;
-	while (i < BEGIN_M)
+	while (i < KEY1_M)
 	{
 		j = 0;
-		if (!(l[i] = (t_word ***)ft_memalloc(sizeof(t_word **) * LEN_M)))
+		if (!(l[i] = (t_word ***)ft_memalloc(sizeof(t_word **) * KEY2_M)))
 			return (NULL);
-		while (j < LEN_M)
+		while (j < KEY2_M)
 		{
-			if (!(l[i][j] = (t_word **)ft_memalloc(sizeof(t_word *) * SUM_M)))
+			if (!(l[i][j] = (t_word **)ft_memalloc(sizeof(t_word *) * KEY3_M)))
 				return (NULL);
 			j++;
 		}
@@ -38,7 +38,7 @@ t_word		****new_list()
 	return (l);
 }
 
-void	get_input(t_search **search, t_word *****list)
+void		get_input(t_search **search, t_word *****list, int **indexes)
 {
 	t_word	*word;
 	char	*line;
@@ -50,16 +50,15 @@ void	get_input(t_search **search, t_word *****list)
 	while (get_next_line(0, &line) > 0)
 	{
 		if (ft_strlen(line) == 0)
-		{
 			s = 1;
-			continue ;
-		}
-		if (!s && i % 2 == 0)
+		else if (!s && i % 2 == 0)
 			word = new_word(line);
 		else if (!s && i % 2 != 0)
 		{
 			word->value = line;
+			word->v_len = ft_strlen(line);
 			sort_word(list, word);
+			(*indexes)[index_maths(word->key)] = 1;
 		}
 		else
 			add_search(search, new_search(line));
@@ -67,15 +66,19 @@ void	get_input(t_search **search, t_word *****list)
 	}
 }
 
-int		main(void)
+int			main(void)
 {
 	t_search	*search;
 	t_word		****list;
+	int			*indexes;
 
 	search = NULL;
-	list = new_list();
-	get_input(&search, &list);
-	get_value(&list, &search);
+	if (!(list = new_list()))
+		return (0);
+	if (!(indexes = (int *)ft_memalloc(sizeof(int) * IND_M)))
+		return (0);
+	get_input(&search, &list, &indexes);
+	get_value(&list, &search, &indexes);
 	free(list);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ratroncy <ratroncy@student.42.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/22 15:57:31 by ratroncy     #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/23 13:34:41 by ratroncy    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/02/23 18:03:02 by bpisano     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,23 +20,26 @@
 # include <wchar.h>
 
 # define BUFF_SIZE 64
-# define BEGIN_M 10
-# define LEN_M 100
-# define SUM_M 100
+# define KEY1_M 10
+# define KEY2_M 100
+# define KEY3_M 100
+# define IND_M 1000
 
 typedef struct		s_word
 {
 	char			*key;
 	char			*value;
-	int				begin;
-	int				len;
-	int				sum;
+	int				key1;
+	int				key2;
+	int				key3;
+	int				v_len;
 	struct s_word	*next;
 }					t_word;
 
 typedef struct		s_search
 {
 	char			*key;
+	struct s_search *prev;
 	struct s_search	*next;
 }					t_search;
 
@@ -47,14 +50,20 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-int					word_sum(char *word);
+int					word_maths1(char *word);
+int					word_maths2(char *word);
+int					index_maths(char *key);
 t_word				*new_word(char *key);
 void				add_word(t_word **words, t_word *new);
 void				sort_word(t_word *****list, t_word *word);
 
 t_search			*new_search(char *search);
 void				add_search(t_search **search, t_search *new);
-void				get_value(t_word *****list, t_search **search);
+void				get_value(t_word *****list, t_search **search,
+					int **indexes);
+
+void				print_not_found(char *key);
+void				print_value(t_word *v);
 
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);

@@ -6,7 +6,7 @@
 /*   By: bpisano <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/22 19:39:15 by bpisano      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/23 12:59:50 by bpisano     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/02/23 18:25:48 by bpisano     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,60 +23,68 @@ t_search	*new_search(char *search)
 		return (NULL);
 	new->key = search;
 	new->next = NULL;
+	new->prev = NULL;
 	return (new);
 }
 
 void	add_search(t_search **search, t_search *new)
 {
-	t_search	*current;
-
-	if (!(*search))
-	{
-		*search = new;
+	if (!new)
 		return ;
-	}
-	current = *search;
-	while (current->next)
-		current = current->next;
-	current->next = new;
+	new->next = *search;	
+	if (*search)
+		(*search)->prev = new;
+	*search = new;
 }
 
-char	*value(t_word *****list, char *key)
+t_word	*word(t_word *****list, char *key)
 {
-	int		begin;
-	int		len;
-	int		sum;
+	int		key1;
+	int		key2;
+	int		key3;
 	t_word	*current;
 
-	begin = (unsigned int)key[0] % 10;
-	len = ft_strlen(key) % 100;
-	sum = word_sum(key) % 100;
-	current = (*list)[begin][sum][len];
+	key1 = word_maths1(key) % KEY1_M;
+	key2 = word_maths2(key) % KEY2_M;
+	key3 = (key1 + key2) % KEY3_M;
+	current = (*list)[key1][key2][key3];
 	if (!current)
 		return (NULL);
 	while (current)
 	{
 		if (ft_strcmp(current->key, key) == 0)
-			return (current->value);
+			return (current);
 		current = current->next;
 	}
 	return (NULL);
 }
 
-void	get_value(t_word *****list, t_search **search)
+int		can_find(int **indexes, char *key)
 {
-	char		*v;
+	int		maths;
+
+	maths = index_maths(key);
+	return ((*indexes)[maths]);
+}
+
+void	get_value(t_word *****list, t_search **search, int **indexes)
+{
 	t_search	*current;
+	t_word		*v;
 
 	if (!(*search))
 		return ;
-	current = *search;
+	current = *search;	
+	while (current->next)
+		current = current->next;
 	while (current)
 	{
-		if (!(v = value(list, current->key)))
-			ft_putstr("No result\n");
+		if (!can_find(indexes, current->key))
+			print_not_found(current->key);
+		else if (!(v = word(list, current->key)))
+			print_not_found(current->key);
 		else
-			ft_putendl(v);
-		current = current->next;
+			print_value(v);
+		current = current->prev;
 	}
 }

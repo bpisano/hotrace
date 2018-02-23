@@ -6,7 +6,7 @@
 #    By: ratroncy <ratroncy@student.42.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/02/22 16:39:00 by bpisano      #+#   ##    ##    #+#        #
-#    Updated: 2018/02/23 13:25:27 by ratroncy    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/02/23 18:02:22 by bpisano     ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -16,6 +16,7 @@ NAME = hotrace
 SRC = ./sources/hotrace.c				\
 	  ./sources/word_manager.c			\
 	  ./sources/search_manager.c		\
+	  ./sources/display.c				\
 	  ./sources/lib1.c					\
 	  ./sources/lib2.c					\
 	  ./sources/lib3.c					\
