@@ -6,7 +6,7 @@
 #    By: bpisano <marvin@le-101.fr>                 +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/02/22 16:39:00 by bpisano      #+#   ##    ##    #+#        #
-#    Updated: 2018/02/22 20:11:22 by bpisano     ###    #+. /#+    ###.fr      #
+#    Updated: 2018/02/23 13:15:46 by bpisano     ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -15,14 +15,15 @@ NAME = hotrace
 
 SRC = ./sources/hotrace.c				\
 	  ./sources/word_manager.c			\
-	  ./sources/search_manager.c
+	  ./sources/search_manager.c		\
+	  ./sources/lib1.c					\
+	  ./sources/lib2.c					\
+	  ./sources/lib3.c					\
+	  ./sources/get_next_line.c			\
 
 OBJECTS = $(SRC:.c=.o)
 
-LIB = libft.a
-
 HEADS = -I ./includes					\
-		-I ./libft						\
 
 FLAGS = -Wall -Werror -Wextra
 
@@ -34,11 +35,8 @@ END = \033[0m
 
 all: $(NAME)
 
-$(LIB):
-	@(make -C libft)
-
-$(NAME): $(LIB) $(OBJECTS)
-	@gcc -o $(NAME) $(OBJECTS) libft/$(LIB)
+$(NAME): $(OBJECTS)
+	@gcc -o $(NAME) $(OBJECTS)
 	@echo "$(BLUE)$(NAME)\033[500D\033[42C$(GREEN)[DONE]$(END)"
 
 %.o : %.c
@@ -48,10 +46,8 @@ $(NAME): $(LIB) $(OBJECTS)
 
 clean:
 	@rm -f $(OBJECTS)
-	@make clean -C libft
 
 fclean: clean
 	@rm -f $(NAME)
-	@make fclean -C libft
 
 re: fclean all

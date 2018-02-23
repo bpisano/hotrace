@@ -6,12 +6,12 @@
 /*   By: bpisano <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2017/12/01 11:52:58 by bpisano      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/22 16:49:07 by bpisano     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/02/23 13:17:04 by bpisano     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "hotrace.h"
 
 static int		n_index(const char *str)
 {

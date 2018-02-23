@@ -6,7 +6,7 @@
 /*   By: bpisano <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/22 16:37:28 by bpisano      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/23 12:32:20 by bpisano     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/02/23 13:07:56 by bpisano     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,25 +17,25 @@ t_word		****new_list()
 {
 	int		i;
 	int		j;
-	t_word	****list;
+	t_word	****l;
 
-	if (!(list = (t_word ****)ft_memalloc(sizeof(t_word ***) * 255)))
+	if (!(l = (t_word ****)ft_memalloc(sizeof(t_word ***) * BEGIN_M)))
 		return (NULL);
 	i = 0;
-	while (i < 255)
+	while (i < BEGIN_M)
 	{
 		j = 0;
-		if (!(list[i] = (t_word ***)ft_memalloc(sizeof(t_word **) * 200)))
+		if (!(l[i] = (t_word ***)ft_memalloc(sizeof(t_word **) * LEN_M)))
 			return (NULL);
-		while (j < 200)
+		while (j < LEN_M)
 		{
-			if (!(list[i][j] = (t_word **)ft_memalloc(sizeof(t_word *) * 200)))
+			if (!(l[i][j] = (t_word **)ft_memalloc(sizeof(t_word *) * SUM_M)))
 				return (NULL);
 			j++;
 		}
 		i++;
 	}
-	return (list);
+	return (l);
 }
 
 void	get_input(t_search **search, t_word *****list)

@@ -6,7 +6,7 @@
 /*   By: bpisano <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/22 20:01:10 by bpisano      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/23 12:32:07 by bpisano     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/02/23 13:08:34 by bpisano     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,7 +28,7 @@ int		word_sum(char *word)
 			sum -= (int)word[i];
 		i++;
 	}
-	return (sum < 0 ? -sum % 200 : sum % 200);
+	return (sum < 0 ? -sum : sum);
 }
 
 t_word	*new_word(char *key)
@@ -41,9 +41,9 @@ t_word	*new_word(char *key)
 		return (NULL);
 	new->key = key;
 	new->value = NULL;	
-	new->begin = (unsigned int)key[0];
-	new->len = ft_strlen(key);
-	new->sum = word_sum(key);
+	new->begin = (unsigned int)key[0] % BEGIN_M;
+	new->len = ft_strlen(key) % LEN_M;
+	new->sum = word_sum(key) % SUM_M;
 	new->next = NULL;
 	return (new);
 }

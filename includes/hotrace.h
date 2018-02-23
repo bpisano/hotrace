@@ -6,7 +6,7 @@
 /*   By: ratroncy <ratroncy@student.42.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/22 15:57:31 by ratroncy     #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/23 13:07:06 by ratroncy    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/02/23 13:16:38 by bpisano     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -14,7 +14,15 @@
 #ifndef HOTRACE_H
 # define HOTRACE_H
 
-# include "libft.h"
+# include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <wchar.h>
+
+# define BUFF_SIZE 64
+# define BEGIN_M 10
+# define LEN_M 100
+# define SUM_M 100
 
 typedef struct		s_word
 {

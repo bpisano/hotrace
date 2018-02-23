@@ -6,7 +6,7 @@
 /*   By: bpisano <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/22 19:39:15 by bpisano      #+#   ##    ##    #+#       */
-/*   Updated: 2018/02/23 12:50:48 by bpisano     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/02/23 12:59:50 by bpisano     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -48,9 +48,9 @@ char	*value(t_word *****list, char *key)
 	int		sum;
 	t_word	*current;
 
-	begin = (unsigned int)key[0];
-	len = ft_strlen(key);
-	sum = word_sum(key);
+	begin = (unsigned int)key[0] % 10;
+	len = ft_strlen(key) % 100;
+	sum = word_sum(key) % 100;
 	current = (*list)[begin][sum][len];
 	if (!current)
 		return (NULL);
