@@ -43,16 +43,18 @@ t_word		*word(t_word *****list, char *key)
 	int		key2;
 	int		key3;
 	t_word	*current;
+	t_word	*begin;
 
 	key1 = word_maths1(key) % KEY1_M;
 	key2 = word_maths2(key) % KEY2_M;
 	key3 = (key1 + key2) % KEY3_M;
 	current = (*list)[key1][key2][key3];
+	begin = current;
 	if (!current)
 		return (NULL);
 	while (current)
 	{
-		if (ft_strcmp(current->key, key) == 0)	
+		if (ft_strcmp(current->key, key) == 0)
 			return (current);
 		current = current->next;
 	}

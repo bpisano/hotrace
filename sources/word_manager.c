@@ -27,7 +27,6 @@ t_word	*new_word(char *key)
 	new->key1 = word_maths1(key) % KEY1_M;
 	new->key2 = word_maths2(key) % KEY2_M;
 	new->key3 = (new->key1 + new->key2) % KEY3_M;
-	//printf("%d, %d, %d\n", new->key1, new->key2, new->key3);
 	new->prev = NULL;
 	new->next = NULL;
 	return (new);
